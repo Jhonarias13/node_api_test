@@ -10,4 +10,4 @@ const switchSchema = new mongoose.Schema({
     versionKey: false
 });
 
-module.exports = mongoose.model('switch', switchSchema);
+module.exports = mongoose.model('switchModel', switchSchema);

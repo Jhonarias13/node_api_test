@@ -9,19 +9,15 @@ const removeExtension = fileName => {
 }
 
 fs.readdirSync(pathRouter).filter(file => {
+
     const fileWithOutExtension = removeExtension(file)
-    const skip = ['index'].includes(fileWithOutExtension);
+
+    let skip = ['index'].includes(fileWithOutExtension);
 
     if (!skip) {
         router.use(`/${fileWithOutExtension}`, require(`./${fileWithOutExtension}`));
         console.log('RUTA CARGADA ---->', fileWithOutExtension);
-    }
-    router.get('*', (req, res) => {
-        res.status(404)
-        res.send({
-            error: 'Not Found'
-        })
-    });
+    } 
 });
 
 module.exports = router;
