@@ -9,7 +9,7 @@ const { dbConnect }  = require('./config/mongo');
 app.use(cors());
 app.use(express.json());
 
-app.use(morgan('dev'));
+// app.use(morgan('dev'));
 app.use('/api/1.0/', require('./app/routes'));
 
 dbConnect();
